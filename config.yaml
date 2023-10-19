@@ -14,3 +14,6 @@ cop:
   upstream: "http://..."
   service_name: Ordinals
   service_port: 80
+
+accounts:
+  main: tb1qsvj3c7qwe93g8290txmrdvseqgwx8eewqlwhra
