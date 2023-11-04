@@ -7,5 +7,5 @@ import (
 )
 
 func calcFee(tx *wire.MsgTx, feeRate int) btcutil.Amount {
-	return btcutil.Amount(mempool.GetTxVirtualSize(btcutil.NewTx(tx))) * btcutil.Amount(feeRate)
+	return btcutil.Amount(mempool.GetTxVirtualSize(btcutil.NewTx(tx))) * btcutil.Amount(feeRate) / btcutil.Amount(10)
 }
