@@ -1,0 +1,99 @@
+<html>
+<head>
+    <title>Main</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script type="text/javascript" src="/ordinals/js/jquery.js"></script>
+    <script type="text/javascript" src="/ordinals/js/main.js"></script>
+    <style>
+        label {
+            margin-bottom: 10px;
+            font-size: larger;
+        }
+        h6 {
+            margin-top: 17px;
+            color: gold;
+        }
+        th {
+            font-size: larger;
+        }
+        .status-label {
+            display: inline-block;
+            margin-left: 30px;
+            font-size: x-large;
+            font-family: ArialS,serif;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: bisque;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body style="background-color: #ecdc92">
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color:#d00112">
+    <div class="container">
+        <a class="navbar-brand" style="color: white; font-size: xx-large; font-family: 'Monospaced',serif" href="#"><b>Ordinals</b></a>
+        <div id="creation_result" style="margin-left: 300px" class="status-label"><b style="color: grey">Status: </b>Waiting for inscription</div>
+        <h6 style="margin-left: 100px"><b id="address">{{.Address}}</b></h6>
+    </div>
+</nav>
+<div style="width: 500px; display: table; margin: auto; margin-top: 100px;">
+    <form id="inscription_form" enctype="multipart/form-data">
+        <div class="form-group" style="margin-bottom: 20px">
+            <label for="hash"><b>Transaction hash</b></label>
+            <input class="form-control" id="hash" name="hash" placeholder="hash">
+        </div>
+        <div class="form-group" style="margin-bottom: 20px; width: 200px">
+            <label for="output"><b>Transaction output</b></label>
+            <input class="form-control" id="output" name="output" placeholder="output">
+        </div>
+        <div class="form-group" style="margin-bottom: 20px">
+            <label for="key"><b>Private key</b></label>
+            <input class="form-control" type="password" id="key" name="key" placeholder="key">
+        </div>
+        <div class="form-group" style="margin-bottom: 20px">
+            <label for="content"><b>Inscription content</b></label>
+            <input class="form-control" id="content" name="content" placeholder="content">
+        </div>
+        <div class="form-group" style="margin-top: 10px">
+            <button class="btn btn-primary" style="background-color:#d00112; border-color: #e68160" onclick="createInscription()">Create</button>
+        </div>
+    </form>
+</div>
+<div class="bg-image">
+    <div class="mask d-flex align-items-center" style="margin-top: 60px; margin-left: 5%; width: 90%">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body p-0">
+                            <div class="table-responsive table-scroll" style="background-color: #ecdc92" data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px">
+                                <table class="table table-striped mb-0">
+                                    <thead style="background-color: #e68160;">
+                                    <tr>
+                                        <th scope="col">Ordinal</th>
+                                        <th scope="col">Inscription</th>
+                                        <th scope="col">Transaction</th>
+                                        <th scope="col">Date</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {{ range .Inscriptions }}
+                                    <tr>
+                                        <td><a>{{ .Id }}</a></td>
+                                        <td>{{ .Content }}</td>
+                                        <td>{{ .TxHash }}</td>
+                                        <td>{{ .Date }}</td>
+                                    </tr>
+                                    {{ end }}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

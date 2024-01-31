@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>Menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body style="background-color: #ecdc92">
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color:#d00112">
+    <div class="container">
+        <a class="navbar-brand" style="color: white; font-size: xx-large; font-family: 'Monospaced',serif" href="#"><b>Ordinals</b></a>
+    </div>
+</nav>
+<div style="width: 500px; display: table; margin: auto; margin-top: 100px;">
+    <form action="/ordinals/" method="get" enctype="multipart/form-data">
+        <div class="form-group" style="margin-bottom: 20px">
+            <label for="address" style="margin-bottom: 20px; font-size: x-large;"><b>Bitcoin address</b></label>
+            <input class="form-control" id="address" name="address" placeholder="address">
+        </div>
+        <div class="form-group" style="margin-top: 10px">
+            <button class="btn btn-primary" style="background-color:#d00112; border-color: #e68160" type="submit">Start</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

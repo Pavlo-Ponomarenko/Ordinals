@@ -2,12 +2,10 @@ package tests
 
 import (
 	"github.com/btcsuite/btcd/btcutil"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/rpcclient"
 	"io/ioutil"
 	"log"
 	"path/filepath"
-	"time"
 )
 
 func main() {
@@ -34,29 +32,11 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	//hash, _ := chainhash.NewHashFromStr("248c9d1af974d50051760fdc296661ac1445f54b0e3a25280cb27ba6225bbb6c")
+	//fmt.Println(out)
 	defer client.Shutdown()
-
-	// Query the RPC server for the genesis block using the "getblock"
-	// command with the verbose flag set to true and the verboseTx flag
-	// set to false.
-	genesisHashStr := "000000000000005984a8d3ffb5f76fcd23abff626a68b2f4e5ad05f96cfc27f0"
-	blockHash, err := chainhash.NewHashFromStr(genesisHashStr)
-	if err != nil {
-		log.Fatal(err)
-	}
-	block, err := client.GetBlockVerbose(blockHash)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Display some details about the returned block.
-	log.Printf("Hash: %v\n", block.Hash)
-	log.Printf("Previous Block: %v\n", block.PreviousHash)
-	log.Printf("Next Block: %v\n", block.NextHash)
-	log.Printf("Merkle root: %v\n", block.MerkleRoot)
-	log.Printf("Timestamp: %v\n", time.Unix(block.Time, 0).UTC())
-	log.Printf("Confirmations: %v\n", block.Confirmations)
-	log.Printf("Difficulty: %f\n", block.Difficulty)
-	log.Printf("Size (in bytes): %v\n", block.Size)
-	log.Printf("Num transactions: %v\n", len(block.Tx))
+	//commitTx, revealTx, err := mint.FormTransactions("text", "Hello!", chaincfg.TestNet3Params)
+	//fmt.Println(commitTx)
+	//fmt.Println(revealTx)
+	//fmt.Println(err)
 }

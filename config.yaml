@@ -3,7 +3,7 @@ log:
   disable_sentry: true
 
 db:
-  url: db_url
+  url: postgresql://postgres:password@localhost:5432/postgres?sslmode=disable
 
 listener:
   addr: :8000
@@ -14,6 +14,3 @@ cop:
   upstream: "http://..."
   service_name: Ordinals
   service_port: 80
-
-accounts:
-  main: tb1qtsk4naeng3g5sw0a80yjp2p378tw8vw0fwv8wz

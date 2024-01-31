@@ -24,7 +24,7 @@ func (s *service) run() error {
 	if err := s.copus.RegisterChi(r); err != nil {
 		return errors.Wrap(err, "cop failed")
 	}
-
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("templates/static"))))
 	return http.Serve(s.listener, r)
 }
 
